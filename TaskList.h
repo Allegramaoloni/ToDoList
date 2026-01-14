@@ -10,9 +10,7 @@ class TaskList{
 private:
     std::vector<Task>listaTask;
 public:
-        void addTask( std::string titolo, bool isCompleted, int priority){
-            listaTask.push_back(Task( titolo, isCompleted,priority));
-        }
+        void addTask( std::string titolo, bool isCompleted, int priority);
         void removeTask(std::string titolo){
 for(auto itr=listaTask.begin();itr!=listaTask.end();++itr){
     if(titolo==itr->getTitolo()){
