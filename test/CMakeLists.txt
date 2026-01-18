@@ -10,7 +10,7 @@ set(SOURCE_TEST_FILES
         TaskTest.cpp
         TaskListTest.cpp
         TaskListExceptionTest.cpp
-        # Aggiungi qui gli altri file .cpp di test che hai creato
+        
 )
 
 # Crea l'eseguibile dei test
