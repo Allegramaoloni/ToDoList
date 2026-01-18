@@ -12,3 +12,31 @@ void TaskList::addTask( std::string titolo, bool isCompleted, int priority){
     // Lo inseriamo esattamente in quel punto
     listaTask.insert(it, nuovaTask);
 }
+void TaskList::removeTask(std::string titolo) {
+    for (auto itr = listaTask.begin(); itr != listaTask.end(); ++itr) {
+        if (titolo == itr->getTitolo()) {
+            listaTask.erase(itr);
+        }
+    }
+}
+
+    void TaskList::markCompleted(std::string titolo) {
+        for (auto &task: listaTask) {
+            if (task.getTitolo() == titolo) {
+                task.setmarkCompleted();
+                return;
+            }
+        }
+        std::cout << "Task non trovata" << std::endl;
+    }
+
+void TaskList::showList() {
+    for ( auto& task : listaTask) {
+        std::cout << "[" << (task.getIsCompleted() ? "x" : " ") << "] "
+                  << task.getTitolo() << std::endl;
+    }
+
+}
+std::string TaskList::getTitolo(){
+    return getTitolo();
+}

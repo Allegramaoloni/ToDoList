@@ -11,8 +11,6 @@ private:
     int priority;
 public:
     Task( std::string titolo,bool isCompleted, int priority) : titolo(titolo), isCompleted(false), priority(priority){}
-//Cose da implementare: Ordine di priorità , ogni task deve essere aggiunta dall'utente e deve
-// anche indicare quanta priorità ha.
     std::string getTitolo();
     bool getIsCompleted();
     void setmarkCompleted();

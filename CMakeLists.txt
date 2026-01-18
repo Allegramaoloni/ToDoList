@@ -1,45 +1,19 @@
-cmake_minimum_required(VERSION 3.26)
+cmake_minimum_required(VERSION 3.18)
 project(ToDoList)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# 1. Definiamo i file della logica (quelli che devono essere testati)
+set(SOURCE_FILES Task.cpp TaskList.cpp)
+set(HEADER_FILES Task.h TaskList.h TaskListException.h)
 
-include(FetchContent)
-FetchContent_Declare(
-        googletest
-        GIT_REPOSITORY https://github.com/google/googletest.git
-        GIT_TAG        v1.14.0
-)
+# 2. Creiamo una libreria con questi file (la chiamiamo ToDoList_lib)
+add_library(${CMAKE_PROJECT_NAME}_lib ${SOURCE_FILES} ${HEADER_FILES})
 
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-FetchContent_MakeAvailable(googletest)
+# 3. Eseguibile principale dell'app
+add_executable(${CMAKE_PROJECT_NAME} main.cpp)
+target_link_libraries(${CMAKE_PROJECT_NAME} ${CMAKE_PROJECT_NAME}_lib)
 
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-FetchContent_MakeAvailable(googletest)
-
-
-add_executable(ToDoList
-        main.cpp
-        Task.h
-        TaskList.h
-        Task.cpp
-        TaskList.cpp
-)
-
-
-enable_testing()
-
-
-add_executable(runTests
-        TaskTest.cpp
-        Task.cpp
-        TaskList.cpp
-)
-
-
-target_link_libraries(runTests GTest::gtest_main)
-
-
-include(GoogleTest)
-gtest_discover_tests(runTests)
+# 4. Diciamo a CMake di andare a leggere nella cartella test
+add_subdirectory(test)
