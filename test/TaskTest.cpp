@@ -2,7 +2,7 @@
 // Created by Allegra Maoloni on 15/01/26.
 //
 #include <gtest/gtest.h>
-#include "Task.h"
+#include "../Task.h"
 
 TEST(TaskTest, InitialState) {
 Task t("Compiti", false, 1);

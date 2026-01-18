@@ -6,7 +6,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # 1. Definiamo i file della logica (quelli che devono essere testati)
 set(SOURCE_FILES Task.cpp TaskList.cpp)
-set(HEADER_FILES Task.h TaskList.h TaskListException.h)
+set(HEADER_FILES Task.h TaskList.h TaskListException.h
+        test/TaskTest.cpp)
 
 # 2. Creiamo una libreria con questi file (la chiamiamo ToDoList_lib)
 add_library(${CMAKE_PROJECT_NAME}_lib ${SOURCE_FILES} ${HEADER_FILES})
