@@ -16,6 +16,9 @@ public:
 void markCompleted(std::string titolo);
     void showList();
     std::string getTitolo();
+    void saveToFile(const std::string& filename);
+    void loadFromFile(const std::string& filename);
+
 
 };
 #endif //TODOLIST_TASKLIST_H
