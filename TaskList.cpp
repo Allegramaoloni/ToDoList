@@ -40,3 +40,23 @@ void TaskList::showList() {
 std::string TaskList::getTitolo(){
     return getTitolo();
 }
+
+#include <fstream>
+
+void TaskList::saveToFile(const std::string& filename) {
+    std::ofstream file(filename);
+
+    if (!file) {
+        std::cerr << "Errore apertura file in scrittura\n";
+        return;
+    }
+
+    for (const Task& task : listaTask) {
+        file << task.getTitolo() << ";"
+             << task.getIsCompleted() << ";"
+             << task.getPriority() << "\n";
+    }
+
+    file.close();
+}
+
