@@ -1,0 +1,16 @@
+# Cartella di build
+cmake-build-debug/
+
+# File generati da CMake / Ninja
+*.o
+*.a
+*.so
+*.log
+*.ninja
+CMakeCache.txt
+CMakeFiles/
+
+# File IDE / OS
+.idea/
+*.iml
+.DS_Store
