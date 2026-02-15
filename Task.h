@@ -11,9 +11,9 @@ private:
     int priority;
 public:
     Task( std::string titolo,bool isCompleted, int priority) : titolo(titolo), isCompleted(false), priority(priority){}
-    std::string getTitolo();
-    bool getIsCompleted();
+    std::string getTitolo()const;
+    bool getIsCompleted()const;
     void setmarkCompleted();
-    int getPriority();
+    int getPriority()const;
 };
 #endif //TODOLIST_TASK_H
