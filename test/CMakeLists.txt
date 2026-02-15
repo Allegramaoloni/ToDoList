@@ -22,3 +22,9 @@ target_link_libraries(runTests
         gtest
         gtest_main
 )
+<<<<<<< HEAD
+=======
+target_include_directories(runTests PUBLIC ${CMAKE_SOURCE_DIR}/src)
+
+
+>>>>>>> 81e195a (Risolto errori, finito)

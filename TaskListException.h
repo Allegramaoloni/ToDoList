@@ -10,5 +10,6 @@
 class TaskListException : public std::runtime_error{
 public:
     explicit TaskListException(const std::string& what) : std::runtime_error(what) {}
+
 };
 #endif //TODOLIST_TASKLISTEXCEPTION_H

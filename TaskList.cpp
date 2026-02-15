@@ -17,6 +17,7 @@ void TaskList::removeTask(std::string titolo) {
     for (auto itr = listaTask.begin(); itr != listaTask.end(); ++itr) {
         if (titolo == itr->getTitolo()) {
             listaTask.erase(itr);
+            return;
         }
     }
     throw TaskListException("Task non trovata");

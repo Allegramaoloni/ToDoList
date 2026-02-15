@@ -4,6 +4,10 @@
 
 int main() {
     TaskList lista;
+
+    // Carico prima il file, così la lista ha già i task
+    lista.loadFromFile("/Users/allegramaoloni/Desktop/TODOLIST/tasks.txt");
+
     bool stop = false;
     int option;
 
@@ -14,11 +18,12 @@ int main() {
         std::cout << "2) Segnare una task come fatta" << std::endl;
         std::cout << "3) Rimuovere una task" << std::endl;
         std::cout << "0) esci" << std::endl;
-        std::cin >> option;
-        std::cin.ignore();
 
-        std::string titolo, fileName;
-        int priority, newPriority;
+        std::cin >> option;
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+        std::string titolo;
+        int priority;
 
         try {
             switch (option) {
@@ -31,10 +36,11 @@ int main() {
                     std::getline(std::cin, titolo);
                     std::cout << "Scrivere la priorità: ";
                     std::cin >> priority;
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                     lista.addTask(titolo, false, priority);
                     break;
                 case 2:
-                    std::cout << " Quale attività ha portato a termine? ";
+                    std::cout << "Quale attività ha portato a termine? ";
                     std::getline(std::cin, titolo);
                     lista.markCompleted(titolo);
                     break;
@@ -46,22 +52,17 @@ int main() {
                 default:
                     std::cout << "Opzione non valida!" << std::endl;
                     break;
-
-
             }
         } catch (const TaskListException &e) {
             std::cerr << "Errore: " << e.what() << std::endl;
         }
 
-    }while (!stop);
+    } while (!stop);
 
-
-    lista.loadFromFile("tasks.txt");
-
-
-    lista.saveToFile("tasks.txt");
-
+    //  Salvo alla fine
+    lista.saveToFile("/Users/allegramaoloni/Desktop/TODOLIST/tasks.txt");
 }
+
 
 
 
