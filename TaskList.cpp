@@ -2,6 +2,7 @@
 // Created by Allegra Maoloni on 14/01/26.
 //
 #include "TaskList.h"
+#include "TaskListException.h"
 void TaskList::addTask( std::string titolo, bool isCompleted, int priority){
     Task nuovaTask(titolo, isCompleted, priority);
     // Cerchiamo il primo task che ha una priorità maggiore di quello nuovo
@@ -18,6 +19,7 @@ void TaskList::removeTask(std::string titolo) {
             listaTask.erase(itr);
         }
     }
+    throw TaskListException("Task non trovata");
 }
 
     void TaskList::markCompleted(std::string titolo) {
@@ -27,7 +29,7 @@ void TaskList::removeTask(std::string titolo) {
                 return;
             }
         }
-        std::cout << "Task non trovata" << std::endl;
+        throw TaskListException("Task non trovata");
     }
 
 void TaskList::showList() {
