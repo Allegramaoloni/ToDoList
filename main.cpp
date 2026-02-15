@@ -55,4 +55,13 @@ int main() {
 
     }while (!stop);
 
+
+    lista.loadFromFile("tasks.txt");
+
+
+    lista.saveToFile("tasks.txt");
+
 }
+
+
+
