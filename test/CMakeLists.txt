@@ -2,7 +2,7 @@
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../lib/googletest ./googletest_build)
 
 # Permette di trovare i file .h che stanno nella cartella superiore
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../lib/googletest/googletest/include)
 
 # File necessari per i test
 set(SOURCE_TEST_FILES
@@ -10,7 +10,7 @@ set(SOURCE_TEST_FILES
         TaskTest.cpp
         TaskListTest.cpp
         TaskListExceptionTest.cpp
-        
+
 )
 
 # Crea l'eseguibile dei test
